@@ -29,7 +29,7 @@
 		$("#controls").append(button);
 
 		// Create a status box title "Sensor" labeled button for GPIO 2
-                var indicator = webiopi().createGPIOButton(17, "Sensor");
+                var indicator = webiopi().createGPIOButton(17, "Switch");
 		// Append indicator to HTML element with ID="controls" using jQuery  
 		$("#controls").append(indicator);
 		
@@ -38,7 +38,6 @@
                 // pass true to refresh repeatedly of false to refresh once
                 webiopi().refreshGPIO(true);
         });
-
 	                
         </script>
         <style type="text/css">
@@ -67,7 +66,7 @@
 		#gpio3.HIGH {
 			background-color: Green;
 		}
-
+		
                 #gpio4.LOW {
                         background-color: Red;
                 }
@@ -84,7 +83,6 @@
 			background-color: Green;
 		}
 
-		
         </style>
 </head>
 <body>
