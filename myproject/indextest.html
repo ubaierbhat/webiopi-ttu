@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta content="width=device-width, initial-scale=1, user-scalable = no " name="viewport" />
+        <title>WebIOPi | Home Automation Controls</title>
+        <script type="text/javascript" src="/webiopi.js"></script>
+        <script type="text/javascript">
+        webiopi().ready(function() {
+                // Settup GPIO Pins
+		webiopi().setFunction(2,"out");
+		webiopi().setFunction(3,"out");
+		webiopi().setFunction(4,"out");
+		webiopi().setFunction(17,"in");
+
+		// Create a button title "LED 1" labeled button for GPIO 2
+                var button = webiopi().createGPIOButton(2, "LED 1");
+		// Append button to HTML element with ID="controls" using jQuery  
+		$("#controls").append(button);
+
+		// Create a button title "LED 2" labeled button for GPIO 3
+		button = webiopi().createGPIOButton(3, "LED 2");
+                // Append button to HTML element with ID="controls" using jQuery
+		$("#controls").append(button);		
+		
+		// Refresh GPIO buttons
+                // pass true to refresh repeatedly of false to refresh once
+                webiopi().refreshGPIO(true);
+        });
+	                
+        </script>
+        <style type="text/css">
+                button {
+                        display: block;
+                        margin: 5px 5px 5px 5px;
+                        width: 160px;
+                        height: 45px;
+                        font-size: 24pt;
+                        font-weight: bold;
+                        color: white;
+                }
+                
+		#gpio2.LOW {
+			background-color: Red;
+		}
+
+		#gpio2.HIGH {
+			background-color: Green;
+		}
+
+		#gpio3.LOW {
+			background-color: Red;
+		}
+
+		#gpio3.HIGH {
+			background-color: Green;
+		}
+		
+                #gpio4.LOW {
+                        background-color: Red;
+                }
+                
+                #gpio4.HIGH {
+                        background-color: Green;
+                }
+
+		#gpio17.LOW {
+			background-color: Red;
+		}
+
+		#gpio17.HIGH {
+			background-color: Green;
+		}
+
+        </style>
+</head>
+<body>
+        <div align="center"><img src="http://www.ttu.ee/extensions/ttu/assets/img/ttu-logo.png"></div>
+	<div id="controls" align="center"></div>
+</body>
+</html>
